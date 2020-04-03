@@ -1,0 +1,20 @@
+.IntervalsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.IntervalsInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding-top: 12px;
+}
+
+.ButtonContainer {
+  padding: 12px 0;
+}
