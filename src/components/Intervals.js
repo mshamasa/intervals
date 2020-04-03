@@ -24,10 +24,10 @@ export default class Intervals extends React.Component {
   };
 
   handleStart = () => {
-    // const { on, off, reps, sets, rest } = this.state;
-    // if (!on || !off || !reps || !sets || !rest) {
-    //   return null;
-    // }
+    const { on, off, reps, sets, rest } = this.state;
+    if (!on || !off || !reps || !sets || !rest) {
+      return null;
+    }
     this.setState({ startReps: true });
   };
 
@@ -95,7 +95,8 @@ export default class Intervals extends React.Component {
             on={on && parseInt(on, 10)}
             off={off && parseInt(off, 10)}
             reps={reps && parseInt(reps, 10)}
-            rest={rest && parseInt(rest, 10)}
+            sets={sets && parseInt(sets, 10)}
+            rest={rest && parseFloat(rest, 10)}
             totalRepCount={totalRepCount}
           />
         )}

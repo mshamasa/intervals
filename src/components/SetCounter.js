@@ -51,21 +51,23 @@ export default class SetCounter extends React.Component {
   };
 
   startRestTimer = () => {
-    const { on, off, reps } = this.props;
-    const totalRepCount = (on + off) * reps;
+    const { rest } = this.props;
+    const restCount = Math.floor(rest * 60);
     this.setState({
-      displayText: `Starting Again In ${totalRepCount}`,
+      displayText: `Starting Again In ${restCount}`,
       count: 1
     });
-    this.startInterval(totalRepCount);
+    this.startInterval(restCount);
   };
 
   handleRepsCompleted = () => {
     this.setState({ start: false });
-    if (this.state.currentSet > this.props.sets) {
+
+    if (this.state.currentSet < this.props.sets) {
       this.startRestTimer();
+      this.setState({ currentSet: this.state.currentSet + 1 });
     } else {
-      this.setState({ count: "", displayText: "" });
+      this.setState({ count: 0, displayText: "All Done, Good Job. 👍" });
     }
   };
 
